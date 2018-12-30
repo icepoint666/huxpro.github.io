@@ -6,7 +6,7 @@ email: 1023553676@qq.com
 description: "深度炼丹，重度乐迷。"
 keyword: "Icepoint, Icep, @icepoint, Icepoint的博客, Icepoint Blog, 博客, 深度学习，计算机视觉"
 url: ""              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""          # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
