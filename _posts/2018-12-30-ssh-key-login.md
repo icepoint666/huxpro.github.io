@@ -8,12 +8,12 @@ tags:
   - Linux
 ---
 
-#### 1.如果没有装ssh，安装ssh
+如果没有装ssh，安装ssh
 ```shell
 $ sudo apt-get install ssh
 ```
 
-#### 2.创建key
+创建key
 ```shell
 $ ssh-keygen -t rsa
 ```
@@ -22,12 +22,13 @@ $ ssh-keygen -t rsa
 
 ps: 查看目录下.开头的文件或者文件夹命令：`ls -a`
 
-#### 3.将公钥拷贝到远程主机S上
+将公钥拷贝到远程主机S上
 ```shell
 $ scp .ssh/id_rsa.pub root@45.77.12.24:/root
 ```
 
-#### 4.登录到远程主机S，将刚刚传输的文件追加到authorized_keys文件中去
+登录到远程主机S，将刚刚传输的文件追加到authorized_keys文件中去
+
 如果没有创建authorized_keys文件：
 
 ```shell
@@ -41,14 +42,14 @@ $ vi authorized_keys
 $ cat ~/id_rsa.pub >> /root/.ssh/authorized_keys
 ```
 
-#### 5.在远程主机S中修改权限
+在远程主机S中修改权限
 ```shell
 $ chmod 700 .ssh
 $ chmod 600 .ssh/authorized_keys
 ```
 注意权限必须为700和600(或644)
 
-#### 6.回到原来的本地主机A验证
+回到原来的本地主机A验证
 ```shell
 $ ssh root@45.77.12.24
 Last login: Sun Dec 30 03:39:45 2018 from 125.210.206.40
