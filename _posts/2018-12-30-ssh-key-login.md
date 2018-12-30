@@ -8,7 +8,9 @@ tags:
   - Linux
 ---
 
-如果没有装ssh，安装ssh
+> 运行环境： Ubuntu 18.04 （不限）
+
+如果没有安装ssh，先要安装ssh
 ```shell
 $ sudo apt-get install ssh
 ```
