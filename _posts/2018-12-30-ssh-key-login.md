@@ -56,3 +56,11 @@ $ chmod 600 .ssh/authorized_keys
 $ ssh root@45.77.12.24
 Last login: Sun Dec 30 03:39:45 2018 from 125.210.206.40
 ```
+## 禁用帐号密码验证登录
+将远程Linux服务器的/etc/ssh/sshd_config配置文件中的
+
+PasswordAuthentication 改为 no
+
+修改后/etc/init.d/sshd reload 加载修改后的配置文件，并使其生效。
+
+这样其他远程客户端如果没有私钥，那么这些用户连输入密码的机会都没有（注意：保存备份好主机的公钥，密钥）
