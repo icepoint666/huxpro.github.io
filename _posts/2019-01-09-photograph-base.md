@@ -103,13 +103,13 @@ ISO代表的则是相机底片或者感光元件的感光度。
 
 EV，Exposure Value，也就是曝光值，对于一套成像系统而言，成像的完整含义是镜头供给的通光量值，与测光单元测出的正确曝光所需的曝光值所匹配，换句话说就是当镜头提供的EV值与测光所需的EV值相同时，即可实现数学意义上的正确曝光。
 
-![img](/img/in-post/post-photograph/EV-3.png)
+![img](/img/in-post/post-photograph/EV-3.jpg)
 
 EV是由光圈和快门速度构建的，对同一块CMOS而言，F5.6+1/125秒所获得的EV值，等同于F4+1/250秒、F2.8+1/500秒、F2+1/1000秒或F8+1/60秒、F11+1/30秒
 
 计算公式如下：
 
-![img](/img/in-post/post-photograph/EV-1.png)
+![img](/img/in-post/post-photograph/EV-1.jpg)
 
 我们的光圈F值比如F1.4、F2、F2.8，快门速度比如1/2秒、1/4秒、1/8秒，F1.4以2秒曝光，代入上式可得EV=0，而F2+4秒、F2.8+8秒也同样EV=0，所以相同的EV理论上有无数种F值与快门速度的组合。
 
@@ -117,7 +117,7 @@ EV是由光圈和快门速度构建的，对同一块CMOS而言，F5.6+1/125秒�
 
 而对于成像系统的镜头供给面而言，EV值越高时，相同光圈下快门速度越快，或者相同快门下F值数字越大（也就是光圈越小），这说明被摄物的辉度或照度够高。所以基本可以理解为EV越高，拍摄环境的亮度越高。
 
-![img](/img/in-post/post-photograph/EV-2.png)
+![img](/img/in-post/post-photograph/EV-2.jpg)
 
 **需求面**
 
@@ -138,13 +138,13 @@ EV是由光圈和快门速度构建的，对同一块CMOS而言，F5.6+1/125秒�
 - I表示ISO敏感度
 - L表示物体辉度
 
-![img](/img/in-post/post-photograph/EV-4.png)
+![img](/img/in-post/post-photograph/EV-4.jpg)
 
 此时的K是反射式测光的常数，事实上入射式也有一个常数C，它俩的比值就是辉度L和照度E的比值：K/C=L/E，这也是为什么很多外置测光表既能测入射也能测反射的原因，因为他们之间是可以计算转换的，以机内测光的18%中性灰而言，K/C=L/E=0.18。
 
 总体关系就是这样：
 
-![img](/img/in-post/post-photograph/EV-5.png)
+![img](/img/in-post/post-photograph/EV-5.jpg)
 
 所以，以此为计算基础即可通过ISO、辉度、反射常数K值，或ISO、照度、入射常数C值为需求面参数来匹配F制光圈和快门速度的供应面参数，实现正确曝光。在1960年的美国国家标准定义里给出了K的参考值3.125
 
