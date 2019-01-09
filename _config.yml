@@ -78,7 +78,7 @@ ga_domain: cly.me
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Rainy day in a city in the universe<br>"
+sidebar-about-description: "You are a badass<br>"
 sidebar-avatar: /img/avatar-index.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
