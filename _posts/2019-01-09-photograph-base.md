@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "摄影基本参数概念"
-subtitle:   "摄影前期——基本参数及术语"
+title:      "摄影入门——基本参数及术语"
+subtitle:   "摄影基础概念<一>"
 date:       2019-01-09
 author:     "Icep"
 header-img: "img/post-bg-alitrip.jpg"
