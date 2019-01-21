@@ -10,7 +10,7 @@ tags:
   - Python
 ---
 
-## Cython基本用法
+# Cython基本用法
 
 > 原文链接：https://zhuanlan.zhihu.com/p/24311879
  
