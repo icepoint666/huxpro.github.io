@@ -119,6 +119,6 @@ setup(ext_modules = cythonize(Extension(
 
 然后我们只需要执行下面命令就可以把 Cython 程序编译成动态链接库了。
 ```shell
-python setup.py build_ext --inplace
+$ python setup.py build_ext --inplace
 ```
 成功运行完上面这句话，可以看到在当前目录多出来了 dot_cython.c 和 dot_cython.so。前者是生成的 C 程序，后者是编译好了的动态链接库。
