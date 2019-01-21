@@ -2,9 +2,10 @@
 layout: post
 title: "Cython基本用法"
 subtitle: 'Using Cython in Python'
-author: 'Icep'
-header-img: "img/post-bg-ssh.jpg"
-header-style: text
+date:       2019-01-21
+author:     "Icep"
+header-img: "img/post-bg-alitrip.jpg"
+catalog: true
 tags:
   - Python
 ---
