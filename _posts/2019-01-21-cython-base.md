@@ -87,3 +87,38 @@ Cython 的函数使用 cdef 定义，并且他可以给所有参数以及返回�
 - 在函数体内部，我们一样可以使用 cdef typename varname 这样的语法来声明变量
 - 在 Python 程序中，是看不到 cdef 的函数的，所以我们这里 def naive_dot(a, b) 来调用 cdef 过的 _naive_dot 函数。
 
+### Cython程序运行流程
+Cython 编译器把 Cython 代码编译成调用了 Python 源码的 C/C++ 代码把生成的代码编译成动态链接库Python 解释器载入动态链接库
+
+要完成前两步，我们要写如下代码：
+```python
+# setup.py
+from distutils.core import setup, Extension
+from Cython.Build import cythonize
+import numpy
+setup(ext_modules = cythonize(Extension(
+    'dot_cython',
+    sources=['dot_cython.pyx'],
+    language='c',
+    include_dirs=[numpy.get_include()],
+    library_dirs=[],
+    libraries=[],
+    extra_compile_args=[],
+    extra_link_args=[]
+)))
+```
+这段代码对于我们这个简单的例子来说有些太复杂了，不过实际上，再复杂也就这么复杂了，为了省得后面再贴一遍，所以索性就在这里把最复杂的列出来好了。这里顺带解释一下好了：
+
+- 'dot_cython' 是我们要生成的动态链接库的名字
+- sources 里面可以包含 .pyx 文件，以及后面如果我们要调用 C/C++ 程序的话，还可以往里面加 .c / .cpp 文件
+- language 其实默认就是 c，如果要用 C++，就改成 c++ 就好了
+- include_dirs 这个就是传给 gcc 的 -I 参数
+- library_dirs 这个就是传给 gcc 的 -L 参数
+- libraries 这个就是传给 gcc 的 -l 参数
+- extra_compile_args 就是传给 gcc 的额外的编译参数，比方说你可以传一个 -std=c++11extra_link_args 就是传给 gcc 的额外的链接参数（也就是生成动态链接库的时候用的）
+
+然后我们只需要执行下面命令就可以把 Cython 程序编译成动态链接库了。
+```shell
+python setup.py build_ext --inplace
+```
+成功运行完上面这句话，可以看到在当前目录多出来了 dot_cython.c 和 dot_cython.so。前者是生成的 C 程序，后者是编译好了的动态链接库。
