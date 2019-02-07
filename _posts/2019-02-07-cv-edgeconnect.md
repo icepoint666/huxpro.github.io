@@ -37,4 +37,5 @@ tags:
 ![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
 #### 边生成器
-输入：$I_{gt}$ 表示ground-truth图像， $C_{gt}$ 表示边缘图ground-truth， $I_{gray}$ 表示ground-truth的灰度图
+定义：$I_{gt}$ 表示ground-truth图像， $C_{gt}$ 表示边缘图ground-truth， $I_{gray}$ 表示ground-truth的灰度图
+使用掩码后的灰度图(masked grayscale image) $\tilde{I}_{gray}=I_{gray}\odot(1-M)$ 作为输入
