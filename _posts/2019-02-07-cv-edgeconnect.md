@@ -46,3 +46,11 @@ $\tilde{I_{gray}}$ 的边图： $\tilde{c_{gt}}=C_{gt}\odot(1-M)$ 作为输入
 边生成器网络输出（edge connect的结果）： $C_{pred}=G_{1}(\tilde{I_{gray}},\tilde{C_{gt}},M)$
 
 （其中 $M$ 表示掩码）
+
+#### 图像补全网络
+
+不完整的彩色图像 $\tilde{I_{gt}}=I_{gt}\odot(1-M)$ 作为输入
+
+经过上一阶段后合成的边图 $C_{comp}=C_{gt}\odot(1-M)+C_{pred}\odot M$ 作为输入
+
+图像补全网络得到的结果：$I_{pred}=G_{2}(\tilde{I_{gt}},C_{comp})$
