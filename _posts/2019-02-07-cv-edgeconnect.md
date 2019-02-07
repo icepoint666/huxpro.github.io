@@ -32,7 +32,7 @@ tags:
 
 - 2.EdgeConnect的理念是“Lines first, color next!”, 根据之前人类如何sketch物体的论文思想总结出image inpainting里面边缘其实对画画的影响比颜色大的多。但是思考点是**对于深度学习里数据分布上，rgb的数据，color next这样弱化颜色对数据影响真的好吗？**                                       
 
-### 算法简介
+### 算法过程
 作者认为相较于图像补全，边的恢复是一个更简单的任务。所以作者提出的方法在本质上是分解成缺失区域高频信息和低频信息的补全。
 ![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
