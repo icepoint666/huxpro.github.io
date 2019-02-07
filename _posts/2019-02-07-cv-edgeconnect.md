@@ -13,7 +13,7 @@ tags:
 > 论文链接：https://arxiv.org/pdf/1901.00212v3.pdf
 
 ### 文章简介
-19年1月新鲜出炉的image inpainting任务上的state-of-the-art.现阶段一般的方法，不能重构出特别合理的结构，大部分是比较模糊。Edgeconnect是一个two-stage的对抗模型，第一阶段image-to-edge后的一个边生成器，将图像缺失区域的边生成，第二阶段edge-to-image图像补全网络，以边为先验补全图像。
+19年1月新鲜出炉的image inpainting任务上的state-of-the-art（关键是还开源！！）.现阶段一般的方法，不能重构出特别合理的结构，大部分是比较模糊。Edgeconnect是一个two-stage的对抗模型，第一阶段image-to-edge后的一个边生成器，将图像缺失区域的边生成，第二阶段edge-to-image图像补全网络，以边为先验补全图像。
 
 ### 相关工作
 18年深度学习处理图像修复问题有很大进展
@@ -32,5 +32,5 @@ tags:
 
 ### 算法简介
 作者认为相较于图像补全，边的恢复是一个更简单的任务。所以作者提出的方法在本质上是分解成缺失区域高频信息和低频信息的补全。
-
+![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
