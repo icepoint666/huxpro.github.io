@@ -5,7 +5,9 @@ subtitle: '计算机视觉论文笔记————图像修复（1）'
 date:       2019-02-07
 author:     "Icep"
 header-img: "img/post-bg-cv-edgeconnect.png"
+header-mask: 0.3
 catalog: true
+mathjax: true
 tags:
   - CV论文笔记
 ---
@@ -34,5 +36,5 @@ tags:
 作者认为相较于图像补全，边的恢复是一个更简单的任务。所以作者提出的方法在本质上是分解成缺失区域高频信息和低频信息的补全。
 ![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
-#### 1.边生成器
-输入：$$I_{gt}$$ 表示ground-truth图像， $ C_gt $ 表示边缘图ground-truth， $$ I_gray $$ 表示ground-truth的灰度图
+#### 边生成器
+输入：$I_{gt}$ 表示ground-truth图像， $C_{gt}$ 表示边缘图ground-truth， $I_{gray}$ 表示ground-truth的灰度图
