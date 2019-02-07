@@ -24,15 +24,15 @@ tags:
 
 
 ### 一些思考
-- 1. 对比EdgeConnect与DeepFill v2(Free form image inpainting with gated convolution)，从训练数据分布上来说：
+- 1.对比EdgeConnect与DeepFill v2(Free form image inpainting with gated convolution)，从训练数据分布上来说：
   - **DeepFill v2**: 由于Deepfill v2作为input的edge channel可能是ground-truth通过边缘检测生成的，与图片一起作为ground truth的一部分来监督。但是，测试阶段的时候，边缘是人为绘制的，虽然有很好的自由性，但从数据分布的角度上看，可能人为绘制出的边缘与ground truth的边缘有些差别，所以可能导致inpainting效果没有特别好。
   - **EdgeConnect**: 训练的时候用于edge-connect的边缘监督ground truth，是通过图片边缘检测得到的，然后根据幻想的边缘结果来作为先验生成补全图像，整个测试过程与训练过程从数据分布上讲是一致的，理论上如果边缘连接效果好的话，EdgeConnect的效果是要优于DeepFill v2的，但也牺牲了一些自由性。
 
-- 2. EdgeConnect的理念是“Lines first, color next!”, 根据之前人类如何sketch物体的论文思想总结出image inpainting里面边缘其实对画画的影响比颜色大的多。但是思考点是**对于深度学习里数据分布上，rgb的数据，color next这样弱化颜色对数据影响真的好吗？**                                       
+- 2.EdgeConnect的理念是“Lines first, color next!”, 根据之前人类如何sketch物体的论文思想总结出image inpainting里面边缘其实对画画的影响比颜色大的多。但是思考点是**对于深度学习里数据分布上，rgb的数据，color next这样弱化颜色对数据影响真的好吗？**                                       
 
 ### 算法简介
 作者认为相较于图像补全，边的恢复是一个更简单的任务。所以作者提出的方法在本质上是分解成缺失区域高频信息和低频信息的补全。
 ![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
 #### 1.边生成器
-输入：$I_{gt}$ 表示ground-truth图像， $C_gt$ 表示边缘图ground-truth， $I_gray$表示ground-truth的灰度图
+输入：$$I_{gt}$$ 表示ground-truth图像， $ C_gt $ 表示边缘图ground-truth， $$ I_gray $$ 表示ground-truth的灰度图
