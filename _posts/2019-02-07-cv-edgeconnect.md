@@ -43,4 +43,6 @@ tags:
 
 $\tilde{I_{gray}}$ 的边图： $\tilde{c_{gt}}=C_{gt}\odot(1-M)$ 作为输入
 
-掩码： $M$
+边生成器网络输出（edge connect的结果）： $C_{pred}=G_{1}(\tilde{I_{gray}},\tilde{C_{gt}},M)$
+
+（其中 $M$ 表示掩码）
