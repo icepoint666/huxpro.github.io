@@ -79,3 +79,25 @@ $D_1^{(i)}$ is the activation in the i’th layer of the discriminator
 经过上一阶段后合成的边图 $C_{comp}=C_{gt}\odot(1-M)+C_{pred}\odot M$ 作为输入
 
 图像补全网络得到的结果：$I_{pred}=G_{2}(\tilde{I_{gt}},C_{comp})$
+
+总损失函数：
+
+$$L_{G2} = \lambda_{l_1}L_{l_1} + \lambda_{adv,2}L_{adv,2} + \lambda_pL_{perc} + \lambda_sL_{style}$$
+
+$L_{adv,2}$ 对抗损失：
+
+$$L_{adv,2} = \mathbb{E}_{(I_{gt};C_{comp})}[log D_2(I_{gt}; C_{comp})] + \mathbb{E}_{C_{comp}} log [1 − D_2(I_{pred}; C_{comp})] $$
+
+$L_{perc}$ perceptual loss:
+
+$$ L_{prec}=\mathbb{E}[\sum_{i}\frac{1}{N_i}||\phi_i(I_{gt}) − \phi_i(I_{pred})||_1] $$
+
+$L_{perc}$ penalizes results that are not perceptually similar to labels by defining a distance measure between activation maps of a pre-trained network.
+
+$\phi_i$ is the activation map of the i'th layer of a pre-trained network. For our work, $\phi_i$ corresponds to activation maps from layers relu1-1, relu2-1, relu3-1, relu4-1 and relu5-1 of the VGG-19 network pre-trained on the ImageNet dataset.
+
+$L_{style}$ style loss:
+
+$$ $$
+
+We choose $\lambda_(l_1} = 1, \lambda_{adv,2} = \lambda_{p} = 0.1, and \lambda_s = 250$
