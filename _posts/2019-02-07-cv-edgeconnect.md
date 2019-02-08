@@ -49,7 +49,7 @@ $\tilde{I_{gray}}$ 的边图： $\tilde{c_{gt}}=C_{gt}\odot(1-M)$ 作为输入
 
 其中 $G_1$ 就是边生成器，$G_1$的损失函数就是：
 
-$$min_{G_1}max_{D_1}L_{G_1} = min_{G_1}(λ_{adv,1}max_D1(L_{adv,1}) + \lambda_{FM}L_{FM})$$
+$$\min_{G_1}\max_{D_1}L_{G_1} = min_{G_1}(λ_{adv,1}max_D1(L_{adv,1}) + \lambda_{FM}L_{FM})$$
 
 #### 图像补全网络
 
