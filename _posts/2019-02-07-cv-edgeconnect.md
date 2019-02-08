@@ -55,7 +55,7 @@ $$\min_{G_1}\max_{D_1}L_{G_1} = \min_{G_1}(\lambda_{adv,1}\max_{D_1}(L_{adv,1}) 
 
 对抗损失就是：
 
-$$L_{adv,1} = \Epsilon_{(C_{gt};I_{gray})}[log D_1(C_{gt}; I_{gray})] + \Epsilon_{I_{gray}} log [1 − D_1(C_{pred}; I_{gray})]$$
+$$L_{adv,1} = \mathbb{E}_{(C_{gt};I_{gray})}[log D_1(C_{gt}; I_{gray})] + \mathbb{E}_{I_{gray}} log [1 − D_1(C_{pred}; I_{gray})]$$
 
 (Discrimator1尽量最大化这个损失，Generator1则希望最小化）
 
