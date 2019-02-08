@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title: "EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning"
 subtitle: '计算机视觉论文笔记————图像修复（1）'
