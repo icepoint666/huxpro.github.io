@@ -59,6 +59,11 @@ $$L_{adv,1} = \mathbb{E}_{(C_{gt};I_{gray})}[log D_1(C_{gt}; I_{gray})] + \mathb
 
 (Discrimator1尽量最大化这个损失，Generator1则希望最小化）
 
+Discriminator的输入是边图 $C$ , 灰度图 $I_{gray}$
+
+$L_{FM}$损失就是：
+
+$$ L_{FM}=\mathbb{E}\sum_{i=1}^L\quad{1}{N_i}||D_1^{(i)}(C_{gt}) − D_1^{(i)}(C_{pred})||_1 $$
 
 #### 图像补全网络
 
