@@ -63,7 +63,14 @@ Discriminator的输入是边图 $C$ , 灰度图 $I_{gray}$
 
 $L_{FM}$损失就是：
 
-$$ L_{FM}=\mathbb{E}\sum_{i=1}^L\quad{1}{N_i}||D_1^{(i)}(C_{gt}) − D_1^{(i)}(C_{pred})||_1 $$
+$$ L_{FM}=\mathbb{E}[\sum_{i=1}^L\frac{1}{N_i}||D_1^{(i)}(C_{gt}) − D_1^{(i)}(C_{pred})||_1] $$
+
+$N_i$ is the number of elements in the i'th activation layer,
+$D_1^{(i)}$ is the activation in the i’th layer of the discriminator
+
+这符合HED边缘检测的思路，HED边缘特征就是根据CNN每层激活层特征总和提取的。
+
+训练策略：WGAN+SN(spectual normalization，谱归一化)，其中设置 $\lambda_{adv,1}=1$ 与 $\lambda_{FM}=10$
 
 #### 图像补全网络
 
