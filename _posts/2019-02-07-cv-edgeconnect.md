@@ -98,6 +98,6 @@ $\phi_i$ is the activation map of the i'th layer of a pre-trained network. For o
 
 $L_{style}$ style loss:
 
-$$ $$
+$$ L_{style}=\mathbb{E}_j[||G_j^{\phi}(\tilde{I_{pred}})-G_j^{\phi}(\tilde{I_{gt}})||_1]$$
 
-We choose $\lambda_(l_1} = 1, \lambda_{adv,2} = \lambda_{p} = 0.1, and \lambda_s = 250$
+We choose $\lambda_(l_1} = 1$ , $\lambda_{adv,2} = \lambda_{p} = 0.1$ , and $\lambda_s = 250$
