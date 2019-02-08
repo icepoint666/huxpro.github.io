@@ -1,4 +1,4 @@
----
+ ---
 layout: post
 title: "EdgeConnect: Generative Image Inpainting with Adversarial Edge Learning"
 subtitle: '计算机视觉论文笔记————图像修复（1）'
@@ -46,6 +46,10 @@ $\tilde{I_{gray}}$ 的边图： $\tilde{c_{gt}}=C_{gt}\odot(1-M)$ 作为输入
 边生成器网络输出（edge connect的结果）： $C_{pred}=G_{1}(\tilde{I_{gray}},\tilde{C_{gt}},M)$
 
 （其中 $M$ 表示掩码）
+
+其中 $G_1$ 就是边生成器，$G_1$的损失函数就是：
+
+$$min_{G_1}max_{D_1}L_{G_1} = min_{G_1}(λ_{adv,1}max_D1(L_{adv,1}) + \lambda_{FM}L_{FM})$$
 
 #### 图像补全网络
 
