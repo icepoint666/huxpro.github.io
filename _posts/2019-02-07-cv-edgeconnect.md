@@ -140,7 +140,7 @@ $$c64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c*
 - c*: In the edge generator $G_1$ , c* has channel size of 1 with sigmoid activation for edge prediction. In the image completion network $G_2$, c* has channel size of 3 with tanh (scaled) activation for the prediction of RGB pixel intensities.
 - In addition, we remove spectral normalization from all layers of G2.
 
-**Discriminator的结构*
+**Discriminator的结构**
 
 网络采用的是70 × 70 PatchGAN (Image-to-image translation with conditional adversarial networks, CVPR2017)里面的网络结构.
 
