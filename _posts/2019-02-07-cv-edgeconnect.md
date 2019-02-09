@@ -96,8 +96,26 @@ $L_{perc}$ penalizes results that are not perceptually similar to labels by defi
 
 $\phi_i$ is the activation map of the i'th layer of a pre-trained network. For our work, $\phi_i$ corresponds to activation maps from layers relu1-1, relu2-1, relu3-1, relu4-1 and relu5-1 of the VGG-19 network pre-trained on the ImageNet dataset.
 
+$\phi_i$ 就表示某层的activation map
+
 $L_{style}$ style loss:
 
 $$ L_{style}=\mathbb{E}_j[||G_j^{\phi}(\tilde{I_{pred}})-G_j^{\phi}(\tilde{I_{gt}})||_1]$$
 
-We choose $\lambda_(l_1} = 1$ , $\lambda_{adv,2} = \lambda_{p} = 0.1$ , and $\lambda_s = 250$
+$G_j^{\phi}$ is a $C_j$ × $C_j$ Gram matrix constructed from activation maps $\phi_j$.
+
+We choose $\lambda_{l_1} = 1$ , $\lambda_{adv,2} = \lambda_{p} = 0.1$ , and $\lambda_s = 250$
+
+对于图像复原网络，使用谱归一化会极大地增加耗时，所以不使用谱归一化。
+
+#### 实验过程
+
+生成training labels (edge maps）使用Canny edge detector, Gaussian smooth filter $\sigma = 2$
+
+网络训练使用256×256的图像，batchSize=8
+
+优化方法Adam optimizer，$\beta_1=0, \beta_2=0.9$
+
+学习率开始是 $10^{-4}$ 之后进入losses plateau后学习率调整为 $10^{-5}$ ,训练 $G_1$, $G_2$ 直到收敛
+
+最终的时候：再移除 $D_1$ 进行fine-tune，然后训练 $G_1$, $G_2$，使用学习率为 $10^{-6}$直到收敛，其中discriminator的学习率都是generator的1/10
