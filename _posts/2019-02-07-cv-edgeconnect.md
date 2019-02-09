@@ -112,7 +112,7 @@ We choose $\lambda_{l_1} = 1$ , $\lambda_{adv,2} = \lambda_{p} = 0.1$ , and $\la
 
 对于图像复原网络，使用谱归一化会极大地增加耗时，所以不使用谱归一化。
 
-#### 实验过程
+### 实验过程
 
 生成training labels (edge maps）使用Canny edge detector, Gaussian smooth filter $\sigma = 2$
 
@@ -123,3 +123,30 @@ We choose $\lambda_{l_1} = 1$ , $\lambda_{adv,2} = \lambda_{p} = 0.1$ , and $\la
 学习率开始是 $10^{-4}$ 之后进入losses plateau后学习率调整为 $10^{-5}$ ,训练 $G_1$, $G_2$ 直到收敛
 
 最终的时候：再移除 $D_1$ 进行fine-tune，然后训练 $G_1$, $G_2$，使用学习率为 $10^{-6}$直到收敛，其中discriminator的学习率都是generator的1/10
+
+#### 网络结构
+
+**Generator的结构**
+
+网络结构采用的是斯坦福 johnson et al. 提出的perceptual loss文章里的结构，因为这篇文章的generator也采用了perceptual loss相关的损失函数，所以也采用这个网络结构作为网络模型。
+
+$$c64, d128, d256, R256, R256, R256, R256, R256, R256, R256, R256, u128, u64, c*.$$
+
+注释：
+- ck: a 7 × 7 **Convolution-SpectralNorm-InstanceNorm-ReLU** layer with k filters and stride 1 with reflection padding
+- dk: a 4 × 4 **Convolution-SpectralNorm-InstanceNorm-ReLU** layer with k filters and stride 2 for down-sampling
+- uk: be defined in the same manner as dk with **transpose convolution** for up-sampling
+- Rk: a residual block of channel size k across both layers (在Rk的第一层使用dilation convolution，dilation factor = 2，之后跟随spectral normlization + instance normalization
+- c*: In the edge generator $G_1$ , c* has channel size of 1 with sigmoid activation for edge prediction. In the image completion network $G_2$, c* has channel size of 3 with tanh (scaled) activation for the prediction of RGB pixel intensities.
+- In addition, we remove spectral normalization from all layers of G2.
+
+**Discriminator的结构*
+
+网络采用的是70 × 70 PatchGAN (Image-to-image translation with conditional adversarial networks, CVPR2017)里面的网络结构.
+
+$$ C64-2, C128-2, C256-2, C512-1, C1-1$$
+
+注释：
+- Ck-s: a 4 × 4 **Convolution-SpectralNorm-LeakyReLU** layer with k filters of stride s
+- The final convolution layer produces scores predicting whether 70 × 70 overlapping image patches are real or fake
+- LeakyReLU is employed with slope 0.2.
