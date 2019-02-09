@@ -34,9 +34,10 @@ tags:
 
 ### 算法过程
 作者认为相较于图像补全，边的恢复是一个更简单的任务。所以作者提出的方法在本质上是分解成缺失区域高频信息和低频信息的补全。
-![](../img/in-post/post-cv-2019/edgeconnect-structure.png)
 
 #### 边生成器
+![](../img/in-post/post-cv-2019/edgeconnect-structure-1.png)
+
 定义：$I_{gt}$ 表示ground-truth图像， $C_{gt}$ 表示边图ground-truth， $I_{gray}$ 表示ground-truth的灰度图
 
 使用掩码后的灰度图(masked grayscale image) $\tilde{I_{gray}}=I_{gray}\odot(1-M)$ 作为输入
@@ -73,6 +74,7 @@ $D_1^{(i)}$ is the activation in the i’th layer of the discriminator
 训练策略：WGAN+SN(spectual normalization，谱归一化)，其中设置 $\lambda_{adv,1}=1$ 与 $\lambda_{FM}=10$
 
 #### 图像补全网络
+![](../img/in-post/post-cv-2019/edgeconnect-structure-2.png)
 
 不完整的彩色图像 $\tilde{I_{gt}}=I_{gt}\odot(1-M)$ 作为输入
 
