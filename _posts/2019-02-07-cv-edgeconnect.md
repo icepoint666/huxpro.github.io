@@ -150,3 +150,10 @@ $$ C64-2, C128-2, C256-2, C512-1, C1-1$$
 - Ck-s: a 4 × 4 **Convolution-SpectralNorm-LeakyReLU** layer with k filters of stride s
 - The final convolution layer produces scores predicting whether 70 × 70 overlapping image patches are real or fake
 - LeakyReLU is employed with slope 0.2.
+
+### 未来工作
+- 1. Plan to investigate better edge detectors， 因为目前对于复杂数以百计的边缘区域生成效果很差。
+- 2. 全卷积生成网络使用，应该会有更好的生成效果对于修复高分辨率图像。
+（个人思考）
+- 3. 基于Contextual Attention，网络引入根据周围像素来判断生成的单元机制
+- 4. 整个生成模型是个二阶段的模型，中间结果是边缘，边缘属于让人理解的一种representaion,能不能找到一种让机器理解的中间阶段representation，从而有更好的修复效果。
