@@ -84,8 +84,11 @@ $ /etc/init.d/ssh restart
 $ export DISPLAY=192.168.0.123:10.0
 ```
 前面的192.168.0.123就是前面ssh登录端获取的ip
+
 10代表 port_num - 6000 = 10
+
 .0代表显示像素
+
 如果是本地显示那么DISPLAY=:0.0
 
 查看一下配置文件
