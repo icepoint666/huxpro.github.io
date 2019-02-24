@@ -12,6 +12,8 @@ tags:
 > 就像其他数据库，SQLite 引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接。SQLite 直接访问其存储文件。
 > flask应用会使用到sqlite3, pytorch的Tensorboard也会用到sqlite3
 
+**python3可能本身会自带sqlite3的库，要先import sqlite3尝试一下！！**
+
 下载安装包
 ```shell
 $ wget https://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz --no-check-certificate
