@@ -4,6 +4,7 @@ title: "Linux使用key验证方式登录ssh"
 subtitle: 'Using ssh-keygen as verification to login server'
 author: 'Icep'
 header-img: "img/post-bg-ssh.jpg"
+header-mask: 0.3
 tags:
   - Linux
 ---
