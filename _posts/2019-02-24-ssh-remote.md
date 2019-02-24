@@ -3,8 +3,9 @@ layout: post
 title: "使用ssh进行文件传输以及远程登录图形化界面"
 subtitle: 'Using ssh to transfer files and telnet GUI'
 author: 'Icep'
-header-img: "img/post-bg-ssh-scp.jpg"
+header-img: "img/post-bg-ssh-scp.png"
 header-style: text
+header-mask: 0.3
 tags:
   - Linux
 ---
