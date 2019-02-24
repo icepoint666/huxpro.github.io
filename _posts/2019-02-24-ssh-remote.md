@@ -40,7 +40,7 @@ A端登陆到B端
 首先，我们需要在B端获取A端登录的ip，也就是**获取ssh登录用户的ip地址**
 
 step1:找sshd进程
-‵‵‵shell
+```shell
 $ ps -ef|grep sshd
 root      1693     1  0 Aug13 ?        00:00:00 /usr/sbin/sshd   #父进程号是1的是系统服务进程
 root     12598  1693  2 14:59 ?        00:00:00 /usr/sbin/sshd   #有这个进程说明有SSHD远程客户登录
