@@ -106,3 +106,12 @@ $ xclock
 $ display
 ```
 登录后，使用xclock或者display测试一下
+
+## 解决登录ssh闲置时间过长而断开连接
+
+修改/etc/ssh/sshd_config配置文件，找到ClientAliveCountMax（单位为分钟）修改你想要的值。
+
+执行：
+```shell
+$ service sshd reload 
+```
