@@ -78,6 +78,7 @@ $ /etc/init.d/ssh restart
 ```
 
 **对服务端B端进行设置**
+
 设置DISPLAY环境变量
 ```shell
 $ export DISPLAY=192.168.0.123:10.0
