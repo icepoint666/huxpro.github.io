@@ -11,7 +11,7 @@ tags:
 
 > 运行环境：远程系统是ubuntu
 
-## 使用ssh命令行传输文件至远程服务器
+## 使用ssh命令行与远程服务器进行文件传输
 上传本地文件到服务器
 ```shell
 $ scp /var/www/test.php root@192.168.0.101:/var/www/
