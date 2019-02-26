@@ -20,7 +20,7 @@ $ scp /var/www/test.php root@192.168.0.101:/var/www/
 
 从服务器上下载文件
 ```shell
-$ scp root@192.168.0.101:/var/www/test.txt
+$ scp root@192.168.0.101:/var/www/test.txt /var/www/
 ```
 
 从服务器下载整个目录
