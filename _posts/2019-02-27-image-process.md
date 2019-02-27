@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "图像压缩算法造成的数据改变，以及图像读写函数对比"
-subtitle: 'Saving to image file will change values of image array, and some image utility functions'
+subtitle: 'Saving to image file will change values of image array, and talking about some image utility functions'
 author: 'Icep'
 header-img: "img/post-bg-ssh.jpg"
 header-mask: 0.3
