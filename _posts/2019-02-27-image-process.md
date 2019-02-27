@@ -124,6 +124,8 @@ io.imsave('f:/save.jpg',img)
 ```
 
 **scipy.misc**
+
+实现numpy->numpy级的图像resize
 ```python
 import scipy
 im = scipy.misc.imresize(im, [height, width])
