@@ -62,11 +62,27 @@ b =  np.loadtxt("filename.txt", delimiter=',')
 ```
 
 ## python dict对象保存至json文件中
+读取json文件：
+```python
+with open('1.json', 'r') as f:
+    dict = json.load(fp=f)
+    print(dict) 
+```
+写入json文件
+```python
+with open('1.json', 'w') as f:
+    json.dump(dict, f)
+```
+注意：对于数组，想存入json文件，需要转换成list.
+
+numpy数组不能序列化，不然会报错：TypeError:Object of type 'ndarray' is not JSON serializable
+
 
 ## 图像读写函数对比
 对图像进行读写的工具库比较多，例如PIL.Image, opencv, scipy, scimage 
 
 > 注意：本身图像的维度是(h, w, ch),但是深度学习处理的时候是（b, ch, h, w)，所以要进行维度的置换
+> Tensor与numpy数组进行维度置换的函数：Tensor维度->numpy维度，img = img.permute(0, 2, 3, 1)
 
 **PIL.Image**
 
