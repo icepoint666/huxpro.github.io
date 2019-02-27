@@ -55,6 +55,7 @@ b = np.load("filename.npy")
 
 - np.savetxt：将数组写入以某种分隔符隔开的文本文件中 
 - np.loadtxt：指定某种分隔符，将文本文件读入到数组中
+
 ```python
 np.savetxt("filename.txt",a) 
 b =  np.loadtxt("filename.txt", delimiter=',')
@@ -63,3 +64,51 @@ b =  np.loadtxt("filename.txt", delimiter=',')
 ## python dict对象保存至json文件中
 
 ## 图像读写函数对比
+对图像进行读写的工具库比较多，例如PIL.Image, opencv, scipy, scimage 
+
+> 注意：本身图像的维度是(h, w, ch),但是深度学习处理的时候是（b, ch, h, w)，所以要进行维度的置换
+
+**PIL.Image**
+
+注意Image正常显示数组维度与numpy数组是反的，Image是(w, h, ch), 正常numpy数组是(h, w, ch)，所以在进行转换前要把第0维与第1维进行颠倒。
+
+```python
+from PIL import Image
+im = Image.open("D:\Prototype\Bikesgray.jpg")
+```
+```python
+im.resize((width, height),Image.ANTIALIAS)
+```
+```python
+im = Image.fromarray(mat)
+```
+```python
+im.save('temp.jpg')
+```
+
+**opencv**
+
+cv2读取图像和使用matla读取图像在每个channel的值不同，cv2读入的形式为BGR，matlab读入的形式为RGB(正常大多数都是rgb）
+
+读取的数据shape是(h, w, ch), 类型是mat类型，属于numpy.mat类型，但是channel的第0维与第2维和正常的Image， numpy数组有些差别。
+
+```python
+import cv2
+im_mat = cv2.imread("D:\Prototype\Bikesgray.jpg")
+cv2.imwrite('1.png',im_mat)
+```
+
+**scimage.io**
+
+对图片处理与numpy数组本身完全一致
+```python
+from skimage import io
+img = io.imread('len.jpg')
+io.imsave('f:/save.jpg',img)
+```
+
+**scipy.misc**
+```python
+import scipy
+im = scipy.misc.imresize(im, [height, width])
+```
