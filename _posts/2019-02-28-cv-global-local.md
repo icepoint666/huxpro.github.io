@@ -89,6 +89,8 @@ The entire training procedure takes roughly 2 months on a single machine equippe
 - dilated convolutions:307×307 pixels
 - standard convolutional:99×99 pixels
 
+对于 307x307 pixels，显然在训练中256x256数据没有什么问题，但是测试的时候图片较大就存在问题了，可能1600x1200的图像就看不到离该像素点很远的区域了
+
 3. 对于这个网络结构基本后来很多论文都采用类似的结构，降采样2次+空洞卷积
 
 例如:19年1月的edge-connect：只是把普通层堆叠升级成了residual block
