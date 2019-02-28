@@ -62,7 +62,7 @@ siggraph2017, 本文提出的图像补全算法，可以保持图像在全局与
 
 Batch size: `96` images
 
-learning rate:  ADADELTA algorithm (Zeiler 2012],which sets a learning rate for each weight in the network automati-cally
+learning rate:  ADADELTA algorithm (Zeiler 2012）,which sets a learning rate for each weight in the network automati-cally
 
 The completion network is trained for $T_C = 90000$ iterations
 
@@ -77,9 +77,11 @@ The entire training procedure takes roughly 2 months on a single machine equippe
 - 输入图片预处理，在completion region上overwrite一个constant color.
 
 ### 一些想法
-1. 关于生成网络，仅仅降采样了两次，使用大小为原始大小四分之一的卷积，其目的是为了降低最终图像的纹理模糊程度。
+#### 1. 关于生成网络，仅仅降采样了两次
+使用大小为原始大小四分之一的卷积，其目的是为了降低最终图像的纹理模糊程度。
 
-2. 使用空洞卷积，它能够通过相同数量的参数和计算能力感知每个像素周围更大的区域。[Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122v2.pdf)
+#### 2. 使用空洞卷积
+它能够通过相同数量的参数和计算能力感知每个像素周围更大的区域。[Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122v2.pdf)
 
 为了能够计算填充图像每一个像素的颜色，该像素需要知道周围图像的内容，采用空洞卷积能够帮助每一个点有效 的“看到”比使用标准卷积更大的输入图像区域，从而填充图中点的颜色
 
@@ -91,7 +93,7 @@ The entire training procedure takes roughly 2 months on a single machine equippe
 
 对于 307x307 pixels，显然在训练中256x256数据没有什么问题，但是测试的时候图片较大就存在问题了，可能1600x1200的图像就看不到离该像素点很远的区域了
 
-3. 对于这个网络结构基本后来很多论文都采用类似的结构，降采样2次+空洞卷积
+#### 3. 对于这个网络结构基本后来很多论文都采用类似的结构，降采样2次+空洞卷积
 
 例如:19年1月的edge-connect：只是把普通层堆叠升级成了residual block
 
