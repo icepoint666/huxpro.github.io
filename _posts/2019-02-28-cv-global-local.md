@@ -43,7 +43,7 @@ siggraph2017, 本文提出的图像补全算法，可以保持图像在全局与
 ### 损失函数
 两个loss联合使用：
 
-- a weighted Mean SquaredError (MSE) loss for training stability
+- a weighted Mean SquaredError (MSE)  loss for training stability
 
 ![img](/img/in-post/post-cv-2019/global-local-4.png)
 
@@ -55,4 +55,45 @@ siggraph2017, 本文提出的图像补全算法，可以保持图像在全局与
 
 ![img](/img/in-post/post-cv-2019/global-local-6.png)
 
-（其中 $\alpha=0.004$ , $M_c$ 表示mask， $x$ 表示input image， $C$ 表示Completion network， $D$ 表示discriminator，显然D也需要mask作为输入从而确定局部中心）
+（其中 $\alpha=0.0004$ , $M_c$ 表示mask， $x$ 表示input image， $C$ 表示Completion network， $D$ 表示discriminator，显然D也需要mask作为输入从而确定局部中心）
+
+### 训练参数及技巧
+训练图片：`8,097,967` training images taken from the Places2 dataset
+
+Batch size: `96` images
+
+learning rate:  ADADELTA algorithm (Zeiler 2012],which sets a learning rate for each weight in the network automati-cally
+
+The completion network is trained for $T_C = 90000$ iterations
+
+The discriminator is trained for $T_D = 10000$ iterations
+
+Finally both are jointly trained to reach $T_{train} = 500000$ iterations
+
+The entire training procedure takes roughly 2 months on a single machine equipped with four K80 GPUs
+
+**Tricks**
+- 训练数据预处理为256x256：将图像的较短边resize成（256,384）中的一个随机数（等比例resize）从图像上随机crop一个256x256的图片。
+- 输入图片预处理，在completion region上overwrite一个constant color.
+
+### 一些想法
+1. 关于生成网络，仅仅降采样了两次，使用大小为原始大小四分之一的卷积，其目的是为了降低最终图像的纹理模糊程度。
+
+2. 使用空洞卷积，它能够通过相同数量的参数和计算能力感知每个像素周围更大的区域。[Multi-Scale Context Aggregation by Dilated Convolutions](https://arxiv.org/pdf/1511.07122v2.pdf)
+
+为了能够计算填充图像每一个像素的颜色，该像素需要知道周围图像的内容，采用空洞卷积能够帮助每一个点有效 的“看到”比使用标准卷积更大的输入图像区域，从而填充图中点的颜色
+
+![img](/img/in-post/post-cv-2019/global-local-7.png)
+
+空洞卷积的感受野计算得到，该网络：
+- dilated convolutions:307×307 pixels
+- standard convolutional:99×99 pixels
+
+3. 对于这个网络结构基本后来很多论文都采用类似的结构，降采样2次+空洞卷积
+
+例如:19年1月的edge-connect：只是把普通层堆叠升级成了residual block
+
+![](/img/in-post/post-cv-2019/edgeconnect-structure-1.png)
+
+之后相关领域有改进增加了gated convolution, GAN也改进为WGAN+SN
+
