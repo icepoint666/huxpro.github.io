@@ -11,6 +11,8 @@ tags:
 
 > 运行环境： Ubuntu 16.04
 
+## 踩坑记录
+
 官网下载 https://developer.nvidia.com/cuda-90-download-archive 下载 cuda_9.0.176_384.81_linux.run 文件
 
 关闭 X server
@@ -88,6 +90,8 @@ $ sudo update-grub
 $ sudo reboot
 ```
 
+**这里更换内核为4.4.0的时候可能会导致分辨率出现问题**
+
 查看内核是否更换
 ```shell
 $ uname -r
@@ -115,3 +119,7 @@ $ source ~/.bashrc
 ```
 
 使用nvidia-smi验证安装成功
+
+**上面这种安装完之后再把内核切换为原来的版本4.15.0系列，可能会导致nvidia-smi产生问题，所以其实是存在问题，需要安装最新的nvidia-driver的版本才行**
+
+**而且这样的情况下会导致安装完成后，无法正常打开ubuntu图形界面**
