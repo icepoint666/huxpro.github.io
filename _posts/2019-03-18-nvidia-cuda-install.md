@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Ubuntu16.04 安装nvidia-driver与cuda9.0"
-subtitle: 'Install nvidia-driver and CUDA on Ubuntu16.04'
+title: "Ubuntu16.04 安装nvidia-driver + cuda9.0 + cudnn7.5"
+subtitle: 'Install nvidia-driver ,CUDA and cuDNN on Ubuntu16.04'
 author: 'Icep'
 header-img: "img/post-bg-ssh.jpg"
 header-mask: 0.3
@@ -118,8 +118,49 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH
 $ source ~/.bashrc
 ```
 
-使用nvidia-smi验证安装成功
+使用nvidia-smi 验证nvidia-driver是否安装成功
+
+重启使用nvcc -V 验证nvidia-cuda-toolkit是否安装成功
 
 **上面这种安装完之后再把内核切换为原来的版本4.15.0系列，可能会导致nvidia-smi产生问题，所以其实是存在问题，需要安装最新的nvidia-driver的版本才行**
 
 **而且这样的情况下会导致安装完成后，无法正常打开ubuntu图形界面**
+
+### 安装cuDNN
+
+cuDNN是cuda用于加速神经网络计算的动态链接库
+
+一般cuda9.0比较配cudnn7.5
+
+去nvidia官网下载cudnn的源码包https://developer.nvidia.com/cudnn
+
+注意选择的文件linux的源码压缩包
+
+之后下载后解压该文件
+```shell
+$ tar -zxvf cudnn-9.0-linux-x64-v7.5.0.56.tgz
+```
+
+切换到刚刚解压出来的文件夹
+```shell
+$ cd cuda
+```
+
+复制文件，之后设置权限
+```shell
+$ sudo cp include/cudnn.h /usr/local/cuda/include/
+$ sudo cp lib64/lib* /usr/local/cuda/lib64/
+$ sudo chmod a+r /usr/local/cuda/include/cudnn.h
+$ sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+```
+
+更新软链接
+```shell
+$ cd /usr/local/cuda/lib64/
+$ sudo rm -rf libcudnn.so libcudnn.so.7
+$ sudo ln -s libcudnn.so.7.5.0 libcudnn.so.7
+$ sudo ln -s libcudnn.so.7 libcudnn.so
+$ sudo ldconfig -v  # 立即生效
+```
+
+重启后再输入nvcc -V验证原来的cuda还能不能用
