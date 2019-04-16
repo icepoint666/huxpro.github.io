@@ -102,10 +102,11 @@ page-mathjax: false
 
 # Friends
 friends: [
-    #{
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
+    {
+         title: "mental2008",
+         href: "https://mental2008.github.io"
+     }
+    #,{
     #    title: "乱序",
     #    href: "http://mida.re/"
     #}
