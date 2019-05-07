@@ -23,7 +23,7 @@ $ sudo apt update
 ```
 查看当前系统推荐你安装的驱动版本
 ```shell
-ubuntu-drivers devices
+$ ubuntu-drivers devices
 ```
 
 安装最新版本
