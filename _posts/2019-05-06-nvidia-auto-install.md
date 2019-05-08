@@ -70,7 +70,7 @@ $ sudo dpkg -i libcudnn7_7.5.1.10-1+cuda10.1_amd64.deb
 ### 安装相关库
 
 ```shell
-$ sudo apt-get install python3-pip
+$ sudo apt-get install python3-pip python3-tk
 $ sudo pip3 install numpy scipy matplotlib pillow torchvision
 ```
 
