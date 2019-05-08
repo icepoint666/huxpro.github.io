@@ -71,6 +71,14 @@ $ sudo dpkg -i libcudnn7_7.5.1.10-1+cuda10.1_amd64.deb
 
 ```shell
 $ sudo apt-get install python3-pip python3-tk
-$ sudo pip3 install numpy scipy matplotlib pillow torchvision
+$ sudo pip3 install numpy scipy matplotlib pillow
 ```
+安装pytorch:最好从官网安装 https://pytorch.org/get-started/locally/
 
+选择对应版本的安装命令：
+
+例如torch1.0.1版本，cuda10.X,  python3.6,  linux系统（目前最新1.1.0版本)：
+```shell
+$ sudo pip3 install https://download.pytorch.org/whl/cu100/torch-1.0.1-cp36-cp36m-linux_x86_64.whl
+$ sudo pip3 install torchvision
+```
