@@ -7,6 +7,7 @@ header-img: "img/post-bg-ssh.jpg"
 header-mask: 0.3
 tags:
   - Tricks
+  - Pytorch
 ---
 
 ## InstanceNorm中是否加可训练的权重
