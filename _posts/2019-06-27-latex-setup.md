@@ -41,6 +41,11 @@ $ sudo apt-get install texlive
 ```shell
 $ sudo apt-get install texlive-full
 ```
+**Latex模板下载地址**
+
+http://www.latextemplates.com/
+
+![](../img/in-post/post-latex/3.png)
 
 **中文输入问题**
 
