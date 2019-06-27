@@ -13,7 +13,7 @@ tags:
 
 进程被kill掉后显存依旧被占
 
-![](img/in-post/kill-python-1.png)
+![](../img/in-post/kill-python-1.png)
 
 
 试试以下几步：
@@ -24,4 +24,4 @@ tags:
 
 2 然后再一个个用kill命令清理
 
-![](img/in-post/kill-python-2.png)
+![](../img/in-post/kill-python-2.png)
