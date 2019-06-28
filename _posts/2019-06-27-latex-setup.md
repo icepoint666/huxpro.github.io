@@ -67,5 +67,5 @@ $ env QT_IM_MODULE=fcitx texstudio
 在输入代码里导入包下面的包就好了
 
 ```latex
-/usepackage{ctex}
+\usepackage{ctex}
 ```
