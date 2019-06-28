@@ -49,3 +49,23 @@ http://www.latextemplates.com/
 
 **中文输入问题**
 
+对于很多基于Qt的软件，都会有这种不能输入中文的问题
+
+如果你的输入法是ibus那么你在启动texstudio的命令前，加一些东西就可以了
+
+```shell
+$ env QT_IM_MODULE=ibus texstudio
+```
+
+当然如果你是fcitx输入法的话，就是这样
+```shell
+$ env QT_IM_MODULE=fcitx texstudio
+```
+
+**中文显示问题**
+
+在输入代码里导入包下面的包就好了
+
+```latex
+/usepackage{ctex}
+```
