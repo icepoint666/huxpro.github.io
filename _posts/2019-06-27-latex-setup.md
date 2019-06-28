@@ -47,6 +47,10 @@ http://www.latextemplates.com/
 
 ![](../img/in-post/post-latex/3.png)
 
+**Latex学习社区**
+
+http://www.latexstudio.net/
+
 **中文输入问题**
 
 对于很多基于Qt的软件，都会有这种不能输入中文的问题
