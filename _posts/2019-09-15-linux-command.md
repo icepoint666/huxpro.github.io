@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux中级命令汇总"
-subtitle: 'More command for linux'
+subtitle: 'More commands for linux'
 author: 'Icep'
 header-img: "img/post-bg-ssh.jpg"
 header-mask: 0.3
