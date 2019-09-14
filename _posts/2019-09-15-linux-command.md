@@ -29,7 +29,7 @@ $ sudo apt-get install package=version
 示例：
 $ sudo apt-get install autoconf=2.50
 ```
-安装apt-show-versions，安装包的可安装版本
+安装apt-show-versions，查看安装包的可安装版本
 ```shell
 $ apt-get install apt-show-versions
 $ apt-show-versions -a nvidia-cuda-toolkit
